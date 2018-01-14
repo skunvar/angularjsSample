@@ -22,8 +22,8 @@
   		<div class="col-xs-7">
   		 <input type="text" class="form-control" placeholder="First Name" id="fname" name="name" ng-model="name" required></input>
   		 <br>
-  		 <span style="color:red" ng-show="signUpForm.name.$dirty && signUpForm.name.$invalid">
-  		 <span ng-show="signUpForm.name.$error.required">First Name is required.</span>
+  		 <span style="color:red" ng-show="submitted &&  signUpForm.name.$invalid">
+  		 <span ng-show="submitted && signUpForm.name.$error.required">First Name is required.</span>
   		</span>
 
   		</div>
@@ -46,15 +46,15 @@
   		<div class="col-xs-7">
   		 <input type="number" class="form-control" ng-required="true" placeholder="Phone" ng-model="phoneNo" name="phoneNo" ng-maxlength="10" ng-minlength="10"></input>
   		  <br>
-  		  <span style="color:red" ng-show="signUpForm.phoneNo.$dirty && signUpForm.phoneNo.$invalid">
-  		 <span  ng-show="signUpForm.phoneNo.$error.required || 
+  		  <span style="color:red" ng-show="signUpForm.phoneNo.$dirty && signUpForm.phoneNo.$invalid"> </span>
+  		 <span style="color:red"  ng-show="submitted && signUpForm.phoneNo.$error.required || 
                            signUpForm.phoneNo.$error.number">
                            Valid phone number is required
             </span>
-            <span  ng-show="((signUpForm.phoneNo.$error.minlength ||
+            <span style="color:red" style="color:red" ng-show="((signUpForm.phoneNo.$error.minlength ||
                            signUpForm.phoneNo.$error.maxlength)) ">
                            phone number should be 10 digits
-            </span>
+           
   		 <!-- <span ng-show="signUpForm.phoneNo.$error.required">Phone Number is required.</span> -->
   		</span>
 
@@ -68,10 +68,10 @@
 
   			<input type="email" name="email" class="form-control" ng-model="email" required placeholder="xxx@gmail.com">
         <br>
-			  <span style="color:red" ng-show="signUpForm.email.$dirty && signUpForm.email.$invalid">
-			  <span ng-show="signUpForm.email.$error.required">Email is required.</span>
-			  <span ng-show="signUpForm.email.$error.email">Invalid email address.</span>
-			  </span>
+			  <span style="color:red" ng-show="signUpForm.email.$dirty && signUpForm.email.$invalid"></span>
+			  <span style="color:red" ng-show=" submitted && signUpForm.email.$error.required">Email is required.</span>
+			  <span style="color:red" ng-show="signUpForm.email.$error.email">Invalid email address.</span>
+			  
 
   		</div>
   	</div>
@@ -197,8 +197,8 @@
   			<!-- Display Picture : -->
   		</div>
   		<div class="col-xs-7">
-        <button  type="submit" class="btn btn-primary" ng-disabled="signUpForm.$invalid">Submit</button>
-
+        <!-- <button  type="submit" class="btn btn-primary" ng-disabled="signUpForm.$invalid">Submit</button> -->
+        <button  type="submit" class="btn btn-primary" ng-click="submitted=true">Submit</button>
   		 <!-- <input type="submit" name="Add" value="Add User" ng-disabled="signUpForm.name.$dirty && signUpForm.name.$invalid || signUpForm.email.$dirty && signUpForm.email.$invalid"> -->
   		</div>
   	</div>
