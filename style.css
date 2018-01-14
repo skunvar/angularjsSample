@@ -1,0 +1,24 @@
+.row-padding {padding-bottom: 2% !important;}
+.label{
+    float: left;
+    height: 30px;
+    padding-right: 4px;
+    padding-top: 2px;
+    position: relative;
+    text-align: right;
+    vertical-align: middle;
+    width: 73px;
+}
+.label:before{
+ content:"*" ;
+color:red    
+}
+/*input {
+  font-family: monospace;
+}
+label {
+  display: block;
+}
+div {
+  margin: 0 0 1rem 0;
+}*/

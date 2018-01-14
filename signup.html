@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sign up</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script type="text/javascript" src="index.js"></script>
+
+<body ng-app="app">
+
+<div class="container" ng-controller="mainController" >
+<form name="signUpForm" ng-submit="submitForm()" novalidate>
+  <div class="row form-group">
+  	<div class="col-xs-6">
+  		<div class="col-xs-5">
+        First Name*:
+  		</div>
+  		<div class="col-xs-7">
+  		 <input type="text" class="form-control" placeholder="First Name" id="fname" name="name" ng-model="name" required></input>
+  		 <br>
+  		 <span style="color:red" ng-show="signUpForm.name.$dirty && signUpForm.name.$invalid">
+  		 <span ng-show="signUpForm.name.$error.required">First Name is required.</span>
+  		</span>
+
+  		</div>
+  	</div>
+  	<div class="col-xs-6">
+  		<div class="col-xs-5">
+  			Last Name:
+  		</div>
+  		<div class="col-xs-7">
+  		 <input class="form-control" type="text" placeholder="Last Name"></input>
+  		</div>
+  	</div>
+  </div>
+
+    <div class="row form-group">
+  	<div class="col-xs-6">
+  		<div class="col-xs-5">
+  			Phone*:
+  		</div>
+  		<div class="col-xs-7">
+  		 <input type="number" class="form-control" ng-required="true" placeholder="Phone" ng-model="phoneNo" name="phoneNo" ng-maxlength="10" ng-minlength="10"></input>
+  		  <br>
+  		  <span style="color:red" ng-show="signUpForm.phoneNo.$dirty && signUpForm.phoneNo.$invalid">
+  		 <span  ng-show="signUpForm.phoneNo.$error.required || 
+                           signUpForm.phoneNo.$error.number">
+                           Valid phone number is required
+            </span>
+            <span  ng-show="((signUpForm.phoneNo.$error.minlength ||
+                           signUpForm.phoneNo.$error.maxlength)) ">
+                           phone number should be 10 digits
+            </span>
+  		 <!-- <span ng-show="signUpForm.phoneNo.$error.required">Phone Number is required.</span> -->
+  		</span>
+
+  		</div>
+  	</div>
+  	<div class="col-xs-6">
+  		<div class="col-xs-5">
+  			Email*:
+  		</div>
+  		<div class="col-xs-7">
+
+  			<input type="email" name="email" class="form-control" ng-model="email" required placeholder="xxx@gmail.com">
+        <br>
+			  <span style="color:red" ng-show="signUpForm.email.$dirty && signUpForm.email.$invalid">
+			  <span ng-show="signUpForm.email.$error.required">Email is required.</span>
+			  <span ng-show="signUpForm.email.$error.email">Invalid email address.</span>
+			  </span>
+
+  		</div>
+  	</div>
+  </div>
+
+    <div class="row row-padding form-group">
+  	<div class="col-xs-6">
+  		<div class="col-xs-5">
+  			Password:
+  		</div>
+  		<div class="col-xs-7">
+  		 <input type="password" class="form-control" placeholder=""></input>
+  		</div>
+  	</div>
+  	<div class="col-xs-6">
+  		<div class="col-xs-5">
+  			DOB:
+  		</div>
+  		<div class="col-xs-7">
+  		 <!-- <input  id="date" data-inputmask="'alias': 'date'" class="form-control"></input> -->
+       <input type="text" name="date" placeholder="yyyy-mm-dd" class="form-control" onkeyup="
+  var date = this.value;
+  if (date.match(/^\d{4}$/) !== null) {
+     this.value = date + '-';
+  } else if (date.match(/^\d{4}\-\d{2}$/) !== null) {
+     this.value = date + '-';
+  }" maxlength="10">
+  		</div>
+  	</div>
+  </div>
+
+    <div class="row row-padding form-group">
+  	<div class="col-xs-6">
+  		<div class="col-xs-5">
+  			Experience:
+  		</div>
+  		<div class="col-xs-7">
+  		 <input type="text" class="form-control" placeholder="Experience"></input>
+  		</div>
+  	</div>
+  	<div class="col-xs-6">
+  		<div class="col-xs-5">
+  			Role:
+  		</div>
+  		<div class="col-xs-7">
+  		 <input type="text" class="form-control"  placeholder="Role"></input>
+  		</div>
+  	</div>
+  </div>
+
+    <div class="row row-padding form-group">
+  	<div class="col-xs-6">
+  		<div class="col-xs-5">
+  			Qualification:
+  		</div>
+  		<div class="col-xs-7">
+  		 <input type="text" class="form-control" placeholder="Qualification"></input>
+  		</div>
+  	</div>
+  	<div class="col-xs-6">
+  		<div class="col-xs-5">
+  			Category:
+  		</div>
+  		<div class="col-xs-7">
+  		 <input type="text" class="form-control" placeholder="Category"></input>
+  		</div>
+  	</div>
+  </div>
+
+    <div class="row row-padding form-group">
+  	<div class="col-xs-6">
+  		<div class="col-xs-5">
+  			Last Company:
+  		</div>
+  		<div class="col-xs-7">
+  		 <input type="text" class="form-control" placeholder="Last Company"></input>
+  		</div>
+  	</div>
+  	<div class="col-xs-6">
+  		<div class="col-xs-5">
+  			Domain:
+  		</div>
+  		<div class="col-xs-7">
+  		 <input type="text" class="form-control" placeholder="Domain"></input>
+  		</div>
+  	</div>
+  </div>
+
+    <div class="row row-padding">
+  	<div class="col-xs-2">
+  		<div class="col-xs-9">
+  			Address:
+  		</div>
+  	</div>
+
+  	<div class="col-xs-8" style="margin-left: 5%;">
+  		<textarea class="form-control" class="form-control"  style="width: 116%!important;" name="address" ng-model="address"  maxlength="255" rows="10" cols="20"></textarea>
+       <p class="text-right" style="width: 116%!important;">Remaining: {{ 255 - address.length + ' Char' }}</p>
+      <br>
+    
+      <span style="color:red" ng-show="signUpForm.address.$error.maxlength">
+                           Address is Exceeded upto 255 char.
+      </span>
+
+  	</div>
+  </div>
+
+   <div class="row">
+  	<div class="col-xs-6">
+  		<div class="col-xs-5">
+  			Display Picture:
+  		</div>
+  		<div class="col-xs-7">
+  		 <input type="file" placeholder="Display Picture" accept="image/*" onchange="loadFile(event)"></input>
+  		 <img id="output"/>
+  		</div>
+  	</div>
+  </div>
+
+   <div class="row row-padding">
+  	<div class="col-xs-6">
+  		<div class="col-xs-5">
+  			<!-- Display Picture : -->
+  		</div>
+  		<div class="col-xs-7">
+        <button  type="submit" class="btn btn-primary" ng-disabled="signUpForm.$invalid">Submit</button>
+
+  		 <!-- <input type="submit" name="Add" value="Add User" ng-disabled="signUpForm.name.$dirty && signUpForm.name.$invalid || signUpForm.email.$dirty && signUpForm.email.$invalid"> -->
+  		</div>
+  	</div>
+  </div>
+
+</form>
+
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+  var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('output');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+</script>
